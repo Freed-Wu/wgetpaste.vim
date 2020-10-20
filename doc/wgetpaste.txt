@@ -1,0 +1,87 @@
+*wgetpaste.txt* A vim wrapper of wgetpaste focusing on making pastebin
+service (bpaste, codepad, dpaste, gist) more convenient.
+>
+                         _                   _             _
+     __      ____ _  ___| |_ _ __   __ _ ___| |_ _____   _(_)_ __ ___
+     \ \ /\ / / _` |/ _ \ __| '_ \ / _` / __| __/ _ \ \ / / | '_ ` _ \
+      \ V  V / (_| |  __/ |_| |_) | (_| \__ \ ||  __/\ V /| | | | | | |
+       \_/\_/ \__, |\___|\__| .__/ \__,_|___/\__\___(_)_/ |_|_| |_| |_|
+              |___/         |_|
+<
+Version: 0.0.1
+=============================================================================
+CONTENTS                                                     *wgetpaste-contents*
+
+01. Intro ..................................................... |wgetpaste-intro|
+02. Commands ............................................... |wgetpaste-commands|
+03. Variables ............................................. |wgetpaste-variables|
+
+=============================================================================
+INTRO                                                          *wgetpaste-intro*
+
+See README.md.
+
+=============================================================================
+FILETYPES                                                   *wgetpaste-filetypes*
+
+wgetpaste
+
+=============================================================================
+COMMANDS                                                     *wgetpaste-commands*
+
+                                               *:Wgetpaste* *wgetpaste-:Wgetpaste*
+:[range]Wgetpaste[!]            Paste [range] of current file to pastebin.
+                                if use [!], it will paste the whole file.
+
+=============================================================================
+VARIABLES                                                   *wgetpaste-variables*
+
+                                                      *g:wgetpaste#convert_rule*
+g:wgetpaste#map
+                        Convert vim syntax to wgetpaste language type.
+			See `wgetpaste -L` in shell to customize it.
+                        Default: see autoload/wgetpaste.vim:1-149.
+
+g:wgetpaste#services
+                        Services allowing wgetpaste to use.
+			See `wgetpaste -S` in shell to customize it.
+                        Default:
+>
+        let g:wgetpaste#services = ['bpaste', 'codepad', 'dpaste', 'gists']
+<
+
+g:wgetpaste#cmd
+			Command name of wgetpaste.
+>
+	let g:wgetpaste#cmd = 'wgetpaste'
+<
+
+g:wgetpaste#extra_arg
+                        Extra arguments wgetpaste using.
+			See `wgetpaste --help` in shell to customize it.
+>
+	let g:wgetpaste#extra_arg = '-XC'
+<
+
+g:wgetpaste#regs
+                        Vim's registers wgetpaste pasting url to.
+			See `:help registers` in vim to customize it.
+>
+	let g:wgetpaste#regs = ['0']
+<
+
+g:wgetpaste#is_open_browser
+                        Bool variable to determine whether it open broser to
+			explore the url of pastebin service.
+>
+	let g:wgetpaste#is_open_browser = 1
+<
+
+g:wgetpaste#is_echo
+			Bool variable to determine whether it echos url of
+			pastebin service.
+>
+	let g:wgetpaste#is_echo = 1
+<
+
+vim:tw=77:isk=!-~,^*,^\|,^\":ts=8:noet:ft=help:norl:
